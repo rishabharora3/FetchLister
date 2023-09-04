@@ -58,8 +58,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-util")
     // compose material3
     implementation("androidx.compose.material3:material3")
-    // compose material3 icons-extended
-    implementation("androidx.compose.material3:material3-icons-extended")
     //foundation
     implementation("androidx.compose.foundation:foundation")
     //foundation layout
