@@ -5,30 +5,28 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -141,6 +139,7 @@ fun FetchListScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ListData(
     modifier: Modifier = Modifier,
@@ -150,55 +149,47 @@ private fun ListData(
     val items = (uiState as ListFeedUiState.Success).items
 
     LazyColumn(
-        modifier = modifier.padding(horizontal = 12.dp),
+        modifier = modifier.padding(all = 12.dp),
         contentPadding = PaddingValues(top = 12.dp, bottom = 12.dp),
         state = scrollableState,
     ) {
         items.forEach { item ->
             item(key = item.id) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp)
-                        .border(
-                            width = 1.dp,
-                            color = Color.Gray,
-                            shape = RoundedCornerShape(8.dp)
-                        )
-                        .background(
-                            color = Color.White,
-                            shape = RoundedCornerShape(8.dp)
-                        )
-                        .padding(8.dp)
-                        .clickable { },
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_dummy),
-                        contentDescription = null,
-                        modifier = Modifier.size(48.dp)
-                    )
-
-                    Spacer(modifier = Modifier.width(8.dp))
-
-                    Column {
+                ListItem(
+                    modifier = Modifier.clickable { },
+                    headlineText = {
                         Text(
                             text = "ID: ${item.id}",
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
                             color = Color.Black,
                         )
+                    },
+                    overlineText = {
                         Text(
                             text = "List ID: ${item.listId}",
                             color = Color.Gray,
                         )
+                    },
+                    supportingText = {
                         Text(
                             text = "Name: ${item.name}",
                             fontStyle = FontStyle.Italic,
                             color = Color.Black,
                         )
-                    }
-                }
+                    },
+                    leadingContent = {
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_dummy),
+                            contentDescription = null,
+                            modifier = Modifier.size(48.dp)
+                        )
+                    },
+                    colors = ListItemDefaults.colors(
+                        containerColor = Color.White,
+                    ),
+                )
+                Spacer(modifier = Modifier.height(12.dp))
             }
         }
     }
