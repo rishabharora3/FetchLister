@@ -1,3 +1,10 @@
 package com.project.data.model
 
-data class ListItem()
+import com.project.database.model.ListItemEntity
+import com.project.network.model.NetworkListItem
+
+fun NetworkListItem.asEntity() = ListItemEntity(
+    id = id,
+    listId = listId,
+    name = name ?: "",
+)

@@ -1,7 +1,7 @@
 package com.project.network.retrofit
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.project.network.FetchNetworkDataSource
+import com.project.network.FetchListerNetworkDataSource
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import okhttp3.Call
@@ -19,7 +19,7 @@ import com.project.network.BuildConfig
  */
 private interface RetrofitFetchListerNetworkApi {
     @GET(value = "hiring.json")
-    suspend fun getListItems(): NetworkResponse<List<NetworkListItem>>
+    suspend fun getListItems(): List<NetworkListItem>
 }
 
 private const val BASE_URL = BuildConfig.BACKEND_URL
@@ -34,13 +34,13 @@ private data class NetworkResponse<T>(
 
 
 /**
- * [Retrofit] backed [FetchNetworkDataSource]
+ * [Retrofit] backed [FetchListerNetworkDataSource]
  */
 @Singleton
-class RetrofitNetwork @Inject constructor(
+class RetrofitListerNetwork @Inject constructor(
     networkJson: Json,
     okhttpCallFactory: Call.Factory,
-) : FetchNetworkDataSource {
+) : FetchListerNetworkDataSource {
 
     private val networkApi = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -52,5 +52,5 @@ class RetrofitNetwork @Inject constructor(
         .create(RetrofitFetchListerNetworkApi::class.java)
 
     override suspend fun getListItems(): List<NetworkListItem> =
-        networkApi.getListItems().data
+        networkApi.getListItems()
 }

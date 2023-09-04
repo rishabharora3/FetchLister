@@ -15,4 +15,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "FetchLister"
 include(":app")
- 
+include(":core")
+include(":core:network")
+include(":core:common")
+include(":core:data")
+include(":core:model")
+include(":core:database")
+include(":core:domain")
+include(":feature")
+include(":feature:fetchlist")
+include(":core:ui")
+include(":core:designsystem")
