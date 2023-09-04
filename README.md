@@ -1,9 +1,9 @@
 <div style="display: flex; flex-direction: row; justify-content: space-between;">
-    <div style="text-align: center;">
+    <div style="text-align: center; flex: 1;">
         <img src="docs/images/light/fetchlister-light.png" alt="fetchlister-light" width="30%">
         <p>Light Theme</p>
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: center; flex: 1;">
         <img src="docs/images/dark/fetchlister-dark.png" alt="fetchlister-dark" width="30%">
         <p>Dark Theme</p>
     </div>
