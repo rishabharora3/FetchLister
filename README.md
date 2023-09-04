@@ -76,5 +76,8 @@ Read more here:
 
 https://github.com/rishabharora3/FetchLister/assets/14349274/7ffe39f4-10fe-49f4-9e73-ff62be25f5a1
 
+## Open API
+FetchLister using the [Fetch API](https://fetch-hiring.s3.amazonaws.com/hiring.json) for constructing RESTful API.<br>
+
 
 
