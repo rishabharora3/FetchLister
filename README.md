@@ -1,8 +1,8 @@
 # FetchLister
 <p align="center">
-  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/cc66c9af-6964-4d22-80cf-e52adecd4b12" alt="Image 1" width="300">
+  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/c62558b6-e99f-42a7-b4cd-dd43e6384fd3" alt="Image 1" width="300">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/6b1446cc-2a41-43ad-ba07-9aeabc9f661e" alt="Image 2" width="300">
+  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/1c684f39-65c8-4d0c-b4e9-567993b8771d" alt="Image 2" width="300">
 </p>
 <p align="center">
   <em>Dark Theme</em> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;<em>Light Theme</em>
