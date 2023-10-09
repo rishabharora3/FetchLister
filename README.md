@@ -49,6 +49,9 @@ Upon tapping on a character, the app navigates to a detailed screen. Here, the c
 
 The goals for the app architecture are:
 
+* **Readability**: The code is designed to be easily comprehensible at a glance.
+* **Maintainability**: The codebase is structured in a way that makes it straightforward to work on, even in the future.
+* **Extensibility**: The architecture allows for the seamless addition of new features or making design adjustments.
 *   Follow the [official architecture guidance](https://developer.android.com/jetpack/guide) as closely as possible.
 *   Easy for developers to understand, nothing too experimental.
 *   Support multiple developers working on the same codebase.
