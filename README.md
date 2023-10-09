@@ -32,7 +32,7 @@ FetchLister is a dynamic Android project that leverages the latest technologies 
 - [Room](https://developer.android.com/jetpack/androidx/releases/room) for local database
 - MVVM/Clean Architecture
 - Github
-- GraphQL APIs
+- [GraphQL APIs](https://graphql.org/learn/)
 
 ## Features
 
