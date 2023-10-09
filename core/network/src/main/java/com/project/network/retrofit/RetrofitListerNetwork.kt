@@ -14,7 +14,6 @@ import com.project.network.model.NetworkCharacterDetail
 import com.project.network.model.NetworkCharacterDetailResponse
 import com.project.network.model.NetworkCharacterListItem
 import com.project.network.model.NetworkCharacterListResponse
-import com.project.network.model.NetworkListItem
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import okhttp3.Call
@@ -24,7 +23,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,9 +32,6 @@ import javax.inject.Singleton
  * Retrofit API declaration for Rick and Morty API
  */
 private interface RetrofitFetchListerNetworkApi {
-    @GET(value = "hiring.json")
-    suspend fun getListItems(): List<NetworkListItem>
-
     @POST(GRAPHQL_PATH)
     suspend fun getCharacterList(
         @Body
@@ -116,9 +111,6 @@ class RetrofitListerNetwork @Inject constructor(
             .registerTypeHierarchyAdapter(GraphQLRequest::class.java, GraphQLRequestTypeAdapter())
             .create()
     }
-
-    override suspend fun getListItems(): List<NetworkListItem> =
-        networkApi.getListItems()
 
     override suspend fun getCharacterList(
         page: Int,
