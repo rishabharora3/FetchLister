@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -95,24 +96,42 @@ fun CharacterDetailContent(
     modifier: Modifier,
     characterDetail: CharacterDetail
 ) {
-    Column(
+    LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        CharacterImage(
-            imageURL = characterDetail.image,
-        )
+        item {
+            CharacterImage(
+                imageURL = characterDetail.image,
+            )
+        }
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        item {
+            TitleAndAnswer("Character ID:", characterDetail.characterName)
+        }
+        item {
+            TitleAndAnswer("Character Name:", characterDetail.locationName)
+        }
+        item {
+            TitleAndAnswer("Character Name:", characterDetail.locationType)
+        }
+        item {
+            TitleAndAnswer("Character Name:", characterDetail.locationDimension)
+        }
+        item {
+            TitleAndAnswer("Character Name:", characterDetail.locationNumberOfResidents.toString())
+        }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        TitleAndAnswer("Character Name:", characterDetail.characterName)
-        TitleAndAnswer("Location Name:", characterDetail.locationName)
-        TitleAndAnswer("Location Type:", characterDetail.locationType)
-        TitleAndAnswer("Location Dimension:", characterDetail.locationDimension)
-        TitleAndAnswer("Number of Residents:", characterDetail.locationNumberOfResidents.toString())
+//        TitleAndAnswer("Character Name:", characterDetail.characterName)
+//        TitleAndAnswer("Location Name:", characterDetail.locationName)
+//        TitleAndAnswer("Location Type:", characterDetail.locationType)
+//        TitleAndAnswer("Location Dimension:", characterDetail.locationDimension)
+//        TitleAndAnswer("Number of Residents:", characterDetail.locationNumberOfResidents.toString())
     }
 }
 
@@ -147,7 +166,8 @@ fun CharacterImage(
     val isLocalInspection = LocalInspectionMode.current
     Box(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .height(300.dp),
         contentAlignment = Alignment.Center,
     ) {
         if (isLoading) {
@@ -163,7 +183,8 @@ fun CharacterImage(
 
         Image(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(350.dp),
             contentScale = ContentScale.Crop,
             painter = if (isError.not() && !isLocalInspection) {
                 imageLoader
