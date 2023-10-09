@@ -1,14 +1,15 @@
 # FetchLister
 <p align="center">
-  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/c62558b6-e99f-42a7-b4cd-dd43e6384fd3" alt="Image 1" width="300">
+  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/39486224-5ec2-4a30-9372-bec0fd0621bc" alt="Image 1" width="300">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/1c684f39-65c8-4d0c-b4e9-567993b8771d" alt="Image 2" width="300">
+  <img src="https://github.com/rishabharora3/FetchLister/assets/14349274/6ca8919b-2c86-4542-8110-53980af1730d" alt="Image 2" width="300">
 </p>
 <p align="center">
-  <em>Dark Theme</em> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;<em>Light Theme</em>
+  <em>List Screen</em> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;<em>Detail Screen</em>
 </p>
 
-FetchLister, powered by the latest Android technologies, is an ongoing sample project that follows Google's [nowinandroid](https://github.com/android/nowinandroid) architecture for efficient item listing. Leveraging the strength of Jetpack Compose, it offers a sleek and intuitive user experience. Built with Hilt for dependency injection, Retrofit2 & OkHttp3 for REST APIs, and Room for local database, FetchLister combines modern architecture with cutting-edge tools for seamless item management.
+FetchLister is a dynamic Android project that leverages the latest technologies for efficient item listing and detailed item information retrieval. This ongoing sample project adheres to Google's recommended [nowinandroid](https://github.com/android/nowinandroid) architecture. It harnesses the power of Jetpack Compose to deliver a sleek and user-friendly interface. The project is built with Hilt for dependency injection and Room for managing local database operations. FetchLister seamlessly blends modern architectural principles with cutting-edge tools, including Retrofit2 & OkHttp3 for GraphQL APIs, to provide a seamless item management experience.
+
 
 ## Technology Stack
 
@@ -22,24 +23,27 @@ FetchLister, powered by the latest Android technologies, is an ongoing sample pr
     - [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material) - to use Material Design Components
     - [Compose UI](https://developer.android.com/jetpack/androidx/releases/compose-ui) - to interact with the device, including layout, drawing, and input
     - [Compose Runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) - Fundamental building blocks of Compose's programming model and state management
+    - [Jetpack Compose - Coil](https://coil-kt.github.io/coil/compose/) - Image loading library for Android backed by Kotlin Coroutines.
 - `Activity`
+- Coil - Image loading library for Android backed by Kotlin Coroutines.
 - [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/) for sharing states
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs
 - [Room](https://developer.android.com/jetpack/androidx/releases/room) for local database
 - MVVM/Clean Architecture
 - Github
+- GraphQL APIs
 
+## Features
 
-## List Display Requirements
+### Character Listing
 
-This list follows specific rules when displaying items to the user:
+The home screen of the app displays a list of 20 Rick and Morty characters. Each item in the list includes the character's name, status, and species. 
 
-1. **Grouping by "listId":** The items in the list are grouped by their "listId" attribute. This means that items with the same "listId" are displayed together as a group.
+### Character Detail
 
-2. **Sorting by "listId" and "name":** The results are sorted first by "listId" and then by "name" when displaying. This ensures that items within the same group (based on "listId") are ordered alphabetically by their "name" attribute.
+Upon tapping on a character, the app navigates to a detailed screen. Here, the character's image and comprehensive information about their location is displayed. This includes the name, type, dimension, and number of residents in that location.
 
-3. **Filtering out blank or null names:** Any items where the "name" attribute is blank or null are filtered out before being displayed to the user. This ensures that only items with valid names are shown.
 
 ## Goals and requirements
 
@@ -52,6 +56,8 @@ The goals for the app architecture are:
 
 
 ## Architecture overview
+
+The app follows the Offline-First architecture, ensuring that once data is loaded, it's cached locally. This approach prioritizes displaying cached data first, followed by fetching the latest data from the remote source. Additionally, the app provides offline access for browsing, and it alerts the user with a snackbar when there is no internet connection.
 
 The app architecture has three layers: a [data layer](https://developer.android.com/jetpack/guide/data-layer), a [domain layer](https://developer.android.com/jetpack/guide/domain-layer) and a [UI layer](https://developer.android.com/jetpack/guide/ui-layer).
 
@@ -73,11 +79,8 @@ Read more here:
 * https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
 
 ## Video Demo
-
-https://github.com/rishabharora3/FetchLister/assets/14349274/7ffe39f4-10fe-49f4-9e73-ff62be25f5a1
+[fetch_lister.webm](https://github.com/rishabharora3/FetchLister/assets/14349274/a969b0e1-546e-40c0-955b-7df1a48b569d)
 
 ## Open API
-FetchLister using the [Fetch API](https://fetch-hiring.s3.amazonaws.com/hiring.json) for constructing RESTful API.<br>
-
-
+FetchLister using the [Rick and Morty API](https://rickandmortyapi.com/documentation/#graphql) for constructing GraphQL API.<br>
 
