@@ -112,26 +112,23 @@ fun CharacterDetailContent(
             Spacer(modifier = Modifier.height(16.dp))
         }
         item {
-            TitleAndAnswer("Character ID:", characterDetail.characterName)
+            TitleAndAnswer("Character Name:", characterDetail.characterName)
         }
         item {
-            TitleAndAnswer("Character Name:", characterDetail.locationName)
+            TitleAndAnswer("Location Name:", characterDetail.locationName)
         }
         item {
-            TitleAndAnswer("Character Name:", characterDetail.locationType)
+            TitleAndAnswer("Location Type:", characterDetail.locationType)
         }
         item {
-            TitleAndAnswer("Character Name:", characterDetail.locationDimension)
+            TitleAndAnswer("Location Dimension:", characterDetail.locationDimension)
         }
         item {
-            TitleAndAnswer("Character Name:", characterDetail.locationNumberOfResidents.toString())
+            TitleAndAnswer(
+                "Number of Residents:",
+                characterDetail.locationNumberOfResidents.toString()
+            )
         }
-
-//        TitleAndAnswer("Character Name:", characterDetail.characterName)
-//        TitleAndAnswer("Location Name:", characterDetail.locationName)
-//        TitleAndAnswer("Location Type:", characterDetail.locationType)
-//        TitleAndAnswer("Location Dimension:", characterDetail.locationDimension)
-//        TitleAndAnswer("Number of Residents:", characterDetail.locationNumberOfResidents.toString())
     }
 }
 
