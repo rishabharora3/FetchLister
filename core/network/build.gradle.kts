@@ -75,6 +75,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    //gson
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
 
     //kotlinx serialization dependencies
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
@@ -82,6 +85,9 @@ dependencies {
 
     //secret dependencies
     implementation("com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 
 }
 

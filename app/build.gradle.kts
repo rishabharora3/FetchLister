@@ -95,7 +95,8 @@ dependencies {
     implementation(project(":core:model"))
 
     // feature
-    implementation(project(":feature:fetchlist"))
+    implementation(project(":feature:characterlist"))
+    implementation(project(":feature:characterdetail"))
 
     //coroutines dependencies
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
