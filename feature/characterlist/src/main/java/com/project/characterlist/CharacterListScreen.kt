@@ -2,7 +2,6 @@ package com.project.characterlist
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -119,12 +118,7 @@ private fun ListData(
                         modifier = Modifier
                             .clickable {
                                 onCharacterListItemClick(item.id)
-                            }
-                            .border(
-                                shape = MaterialTheme.shapes.medium,
-                                color = Color.White,
-                                width = 1.dp
-                            ),
+                            },
                         headlineText = {
                             Text(
                                 text = item.name,
