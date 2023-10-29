@@ -12,5 +12,5 @@ interface CharacterDetailDao {
     suspend fun upsertCharacterDetail(characterDetailEntity: CharacterDetailEntity)
 
     @Query(value = "SELECT * FROM character_detail WHERE id = :characterId")
-    fun getCharacterDetail(characterId: String): Flow<CharacterDetailEntity>
+    fun getCharacterDetail(characterId: String): Flow<CharacterDetailEntity?>
 }

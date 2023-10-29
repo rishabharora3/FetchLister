@@ -28,7 +28,6 @@ class CharacterDetailViewModel @Inject constructor(
                 characterDetail.id.isEmpty() -> {
                     CharacterDetailUiState.Error
                 }
-
                 else -> {
                     CharacterDetailUiState.Success(characterDetail)
                 }

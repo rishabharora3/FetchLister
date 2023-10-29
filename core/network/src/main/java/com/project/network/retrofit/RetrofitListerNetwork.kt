@@ -15,7 +15,6 @@ import com.project.network.model.NetworkCharacterDetailResponse
 import com.project.network.model.NetworkCharacterListItem
 import com.project.network.model.NetworkCharacterListResponse
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -84,7 +83,6 @@ private data class NetworkResponse<T>(
  */
 @Singleton
 class RetrofitListerNetwork @Inject constructor(
-    networkJson: Json,
     okhttpCallFactory: Call.Factory,
 ) : FetchListerNetworkDataSource {
 
