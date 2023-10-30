@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.characterdetail.navigation.CharacterDetailArgs
-import com.project.data.repository.OfflineFirstCharacterDetailRepository
+import com.project.data.repository.CharacterDetailRepository
 import com.project.model.data.CharacterDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,18 +16,19 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    offlineFirstCharacterDetailRepository: OfflineFirstCharacterDetailRepository,
+    characterDetailRepository: CharacterDetailRepository,
 ) : ViewModel() {
     private val characterDetailArgs: CharacterDetailArgs = CharacterDetailArgs(savedStateHandle)
 
     val uiState: StateFlow<CharacterDetailUiState> =
-        offlineFirstCharacterDetailRepository.getCharacterDetail(
+        characterDetailRepository.getCharacterDetail(
             characterId = characterDetailArgs.characterId,
         ).map { characterDetail ->
             when {
                 characterDetail.id.isEmpty() -> {
                     CharacterDetailUiState.Error
                 }
+
                 else -> {
                     CharacterDetailUiState.Success(characterDetail)
                 }

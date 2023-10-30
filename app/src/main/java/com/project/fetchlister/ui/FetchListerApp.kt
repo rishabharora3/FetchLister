@@ -2,7 +2,6 @@ package com.project.fetchlister.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
@@ -32,7 +31,6 @@ import com.project.fetchlister.navigation.FetchListerNavHost
 @SuppressLint("VisibleForTests")
 @OptIn(
     ExperimentalMaterial3Api::class,
-    ExperimentalLayoutApi::class,
     ExperimentalComposeUiApi::class,
 )
 @Composable

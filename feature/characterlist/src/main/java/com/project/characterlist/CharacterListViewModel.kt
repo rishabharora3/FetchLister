@@ -2,7 +2,7 @@ package com.project.characterlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.data.repository.OfflineFirstCharacterListRepository
+import com.project.data.repository.CharacterListRepository
 import com.project.model.data.CharacterListItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -14,11 +14,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterListViewModel @Inject constructor(
-    offlineFirstCharacterListRepository: OfflineFirstCharacterListRepository
+    characterListRepository: CharacterListRepository,
 ) : ViewModel() {
 
     val uiState: StateFlow<CharacterListUiState> =
-        offlineFirstCharacterListRepository.getCharacterList(
+        characterListRepository.getCharacterList(
             page = 1,
         ).map { items ->
             when {
