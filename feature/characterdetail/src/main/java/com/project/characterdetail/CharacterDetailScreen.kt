@@ -86,6 +86,8 @@ fun CharacterDetailScreen(
                         modifier = Modifier.align(Alignment.Center),
                     )
                 }
+
+                else -> {}
             }
         }
     }
